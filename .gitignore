@@ -1,3 +1,6 @@
+# Ignore pages used for conversion
+pages/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
