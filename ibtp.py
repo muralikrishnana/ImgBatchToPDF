@@ -1,5 +1,13 @@
+import os
+import sys
 from fpdf import FPDF
 from PIL import Image
+
+
+def getPages():
+    filesList = [file for file in os.listdir(
+        './pages') if file.endswith('.png')]
+    return filesList
 
 
 def makePdf(pdfFileName, listPages, dir=''):
@@ -22,9 +30,20 @@ def makePdf(pdfFileName, listPages, dir=''):
 
 
 if __name__ == '__main__':
+    try:
+        pagesList = getPages
+        pagesList = [p.strip(".png") for p in pagesList]
+    except:
+        print("Error getting pages list. Make sure the pages directory exists.")
+        sys.exit()
+
+    if len(pagesList) == 0:
+        print("Pages directory is empty. Retry after populating the pages directory.")
+        sys.exit()
+
     print("Process started")
     try:
-        makePdf("test.pdf", ["a", "b"], "")
+        makePdf("boe", pagesList, "pages")
         print("Success")
     except FileNotFoundError:
         print("The input filenames are invalide!")

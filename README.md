@@ -6,3 +6,11 @@ Convert a batch of images to pdf. Made for converting pages designed in png form
 
 - FPDF
 - PIL
+
+### Usage
+
+- Clone the repo.
+- Install requirements.
+- Create a directory named 'pages' inside the root of the repo.
+- Populate pages directory with the pngs.
+- Run the script.
